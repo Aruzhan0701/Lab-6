@@ -1,0 +1,25 @@
+name: Lab-6 Python Workflow
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  run_python:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Репозиторийді көшіру
+        uses: actions/checkout@v4
+
+      - name: Python орнатылғанын тексеру
+        run: python3 --version
+
+      - name: Python скриптін орындау
+        run: |
+          echo "print('Hello from Аружан 👋')" > hello.py
+          python3 hello.py
+
+      - name: Жүйе туралы ақпарат шығару
+        run: uname -a
